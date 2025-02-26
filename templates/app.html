@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Few Shot Language Agnostic Key Word Spotting(FSLAKWS) system</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+    <link href="https://fonts.googleapis.com/css?family=Roboto:400,500,700&display=swap" rel="stylesheet">
+    <link rel="icon" href="{{ url_for('static', filename='favicon.ico') }}" type="image/x-icon">
+</head>
+
+<body>
+    <div class="container">
+        <h1>Few Shot Language Agnostic Key Word Spotting(FSLAKWS) system</h1>
+        <p>Upload an audio file to transcribe and extract the most relevant keywords.</p>
+
+        <!-- Upload Section -->
+        <section class="upload-section">
+            <div class="input-group">
+                <label for="audioFile" class="input-label">Upload Audio File:</label>
+                <input type="file" id="audioFile" accept="audio/*" onchange="updateFileName()" />
+                <p id="fileName"></p>
+            </div>
+
+            <audio id="audioPlayer" controls style="display:none;">
+                Your browser does not support the audio element.
+            </audio>
+
+            <div class="button-container">
+                <button class="btn primary" onclick="uploadAudio()">Upload and Process</button>
+                <button class="btn danger" onclick="clearFile()">Clear</button>
+            </div>
+        </section>
+
+        <!-- Status Section -->
+        <section class="status-section">
+            <p id="status">Select a file to begin</p>
+            <div id="progress">
+                <div id="progress-bar"></div>
+            </div>
+        </section>
+
+        <!-- Results Section -->
+        <section class="results-section">
+            <!-- Transcription -->
+            <div class="transcription-container">
+                <h3>Transcription</h3>
+                <div id="transcription" class="transcription-box"></div>
+            </div>
+
+            <!-- Keywords -->
+            <div class="keywords-container">
+                <h3>Keywords Extracted</h3>
+                <div class="keyword-sections">
+                    <!-- Named Entities -->
+                    <div class="keyword-section">
+                        <h4>Named Entities</h4>
+                        <div id="namedEntities" class="keyword-list"></div>
+                    </div>
+
+                    <!-- Key Phrases -->
+                    <div class="keyword-section">
+                        <h4>Key Phrases</h4>
+                        <div id="keyPhrases" class="keyword-list"></div>
+                    </div>
+
+                    <!-- Frequent Words -->
+                    <div class="keyword-section">
+                        <h4>Frequent Words</h4>
+                        <div id="frequentWords" class="keyword-list"></div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Download Button -->
+            <div class="button-container">
+                <button id="downloadBtn" class="btn secondary" onclick="downloadTranscription()" style="display: none;">
+                    Download Transcription
+                </button>
+            </div>
+        </section>
+    </div>
+
+    <script src="{{ url_for('static', filename='script.js') }}"></script>
+</body>
+
+</html>
