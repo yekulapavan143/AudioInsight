@@ -79,7 +79,7 @@ Contributions, issues, and feature requests are welcome! Feel free to check [iss
 
 ## 👤 Author
 
-**Pavan Yekula**
+**Yekula Pavan**
 
 * Github: [@yekulapavan143](https://github.com/yekulapavan143)
 
