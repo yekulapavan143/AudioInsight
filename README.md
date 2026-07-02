@@ -17,10 +17,6 @@ A powerful web application that transforms audio content into actionable insight
 
 - Python 3.x
 - Flask web framework
-- Required Python packages (install via pip):
-  ```bash
-  pip install flask
-  ```
 
 ### Installation
 
@@ -31,9 +27,22 @@ A powerful web application that transforms audio content into actionable insight
    ```
 
 2. Install dependencies
-   ```bash
-   pip install -r requirements.txt
-   ```
+
+  ```bash
+  pip install flask --no-warn-script-location
+
+  pip install spacy --no-warn-script-location
+
+  pip install torch --no-warn-script-location
+
+  pip install transformers --no-warn-script-location
+
+  pip install librosa --no-warn-script-location
+
+  pip install keybert --no-warn-script-location
+
+  python -m spacy download en_core_web_sm
+  ```
 
 3. Run the application
    ```bash
